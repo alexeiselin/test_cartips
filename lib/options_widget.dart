@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 List<String> optionsList(BuildContext context) {
   return [
@@ -34,8 +35,11 @@ class _ReusableCard2State extends State<ReusableCard2> {
                 shadowColor: Colors.grey,
                 backgroundColor: Colors.white10,
                 selectedColor: Colors.black,
-                label: Text(optionsList(context)[idx]),
+                label: Text(
+                  style: GoogleFonts.roboto(),
+                    optionsList(context)[idx]),
                 labelStyle: TextStyle(
+
                   color: _value == idx ? Colors.white : Colors.black,
                 ),
                 selected: _value == idx,

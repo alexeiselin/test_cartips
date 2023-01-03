@@ -5,6 +5,7 @@ import 'mock_implementation.dart';
 import 'lang_change_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -32,19 +33,14 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:  [
-                  const Text(
-                    'Мои коды',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.w500),
-                  ),
+                children: [
+                  Text('Мои коды',
+                      style: GoogleFonts.roboto(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black)),
                   Badge(
-                    position: BadgePosition.topEnd(
-                      top: 3,
-                      end: 3
-                    ),
+                    position: BadgePosition.topEnd(top: 3, end: 3),
                     showBadge: true,
                     child: const Icon(
                       size: 36.0,
@@ -112,18 +108,18 @@ class _MainPageState extends State<MainPage> {
                         width: 126.0,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
+                          children:  [
+                            const Icon(
                               Icons.qr_code,
                               size: 28.0,
                             ),
-                            SizedBox(width: 4.0),
+                            const SizedBox(width: 4.0),
                             Text(
                               'Мои коды',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w500),
+                              style:  GoogleFonts.roboto(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
                             ),
                           ],
                         ),

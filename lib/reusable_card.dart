@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ReusableCard extends StatelessWidget {
   const ReusableCard({Key? key, required this.color, required this.text})
@@ -35,7 +36,11 @@ class ReusableCard extends StatelessWidget {
             ),
             Text(
               text,
-              style: const TextStyle(fontSize: 20),
+              style:GoogleFonts.roboto(
+                fontSize:  18,
+                fontWeight: FontWeight.w500
+              ),
+
             ),
           ],
         ),
