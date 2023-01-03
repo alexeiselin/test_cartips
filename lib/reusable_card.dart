@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-List<Color> colors = [
-  Colors.blue.shade200,
-  Colors.purple.shade50,
-  Colors.green.shade200,
-  Colors.blue.shade100,
-  Colors.green.shade100
-];
-
 class ReusableCard extends StatelessWidget {
   const ReusableCard({Key? key, required this.color, required this.text})
       : super(key: key);
@@ -21,7 +13,8 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      height: 64.0,
+      margin: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 14.0),
       decoration: BoxDecoration(
         color: color,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -30,7 +23,13 @@ class ReusableCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         child: Row(
           children: [
-            const Icon(Icons.qr_code),
+            Container(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    color: Color.alphaBlend(color.withOpacity(0.9), Colors.black.withOpacity(0.9))),
+                child: const Padding(
+                  padding: EdgeInsets.all(5.0),
+                    child: Icon(Icons.qr_code))),
             const SizedBox(
               width: 5.0,
             ),

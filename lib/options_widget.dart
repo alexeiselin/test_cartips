@@ -25,7 +25,7 @@ class _ReusableCard2State extends State<ReusableCard2> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Wrap(
-        spacing: 15.0,
+        spacing: 10.0,
         children: List<Widget>.generate(
           optionsList(context).length,
           (int idx) {

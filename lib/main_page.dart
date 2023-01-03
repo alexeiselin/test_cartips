@@ -4,6 +4,7 @@ import 'package:test_cartips/reusable_card.dart';
 import 'mock_implementation.dart';
 import 'lang_change_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -22,40 +23,57 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Мои коды',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: const [
-          Icon(
-            Icons.notifications,
-            color: Colors.black,
-          )
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: Column(children: [
-          const ReusableCard2(),
-          const SizedBox(height: 15),
-          Expanded(
-              child: FutureBuilder<List<ReusableCard>>(
-                  future: cardsFuture,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasData) {
-                      final cards = snapshot.data!;
-                      return buildCards(cards);
-                    } else {
-                      return const Text('No user data');
-                    }
-                  })),
-          Expanded(
-            child: Align(
+      body: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 13.0),
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:  [
+                  const Text(
+                    'Мои коды',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Badge(
+                    position: BadgePosition.topEnd(
+                      top: 3,
+                      end: 3
+                    ),
+                    showBadge: true,
+                    child: const Icon(
+                      size: 36.0,
+                      Icons.notifications,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 50),
+            const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: ReusableCard2()),
+            const SizedBox(height: 40),
+            Expanded(
+                child: FutureBuilder<List<ReusableCard>>(
+                    future: cardsFuture,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasData) {
+                        final cards = snapshot.data!;
+                        return buildCards(cards);
+                      } else {
+                        return const Text('No data');
+                      }
+                    })),
+            Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                   height: 100,
@@ -71,27 +89,55 @@ class _MainPageState extends State<MainPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                        onPressed: (){ Localizations.localeOf(context)
-                            .languageCode ==
-                            'en'
-                            ? context.read<LangChangeProvider>().changeLocale('ru')
-                            : context.read<LangChangeProvider>().changeLocale('en');},
+                        onPressed: () {
+                          Localizations.localeOf(context).languageCode == 'en'
+                              ? context
+                                  .read<LangChangeProvider>()
+                                  .changeLocale('ru')
+                              : context
+                                  .read<LangChangeProvider>()
+                                  .changeLocale('en');
+                        },
                         icon: const Icon(
+                          size: 28.0,
                           Icons.settings,
                           color: Colors.white,
                         ),
                       ),
-                      const ReusableCard(
-                          color: Colors.deepPurpleAccent, text: 'Мои коды'),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFCDC1FF),
+                            borderRadius: BorderRadius.circular(24.0)),
+                        height: 48.0,
+                        width: 126.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.qr_code,
+                              size: 28.0,
+                            ),
+                            SizedBox(width: 4.0),
+                            Text(
+                              'Мои коды',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                      ),
                       const Icon(
+                        size: 28.0,
                         Icons.person,
                         color: Colors.white,
                       )
                     ],
                   )),
-            ),
-          )
-        ]),
+            )
+          ]),
+        ),
       ),
 
       // body: Column(
