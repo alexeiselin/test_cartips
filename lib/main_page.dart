@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_cartips/options_widget.dart';
 import 'package:test_cartips/reusable_card.dart';
 import 'mock_implementation.dart';
-
-
+import 'lang_change_provider.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -14,12 +14,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   @override
-
   void initState() {
     super.initState();
-   cardsFuture = readJson();
-   
+    cardsFuture = readJson();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,19 +42,18 @@ class _MainPageState extends State<MainPage> {
           const ReusableCard2(),
           const SizedBox(height: 15),
           Expanded(
-            child: FutureBuilder <List <ReusableCard>>(
-              future: cardsFuture,
-              builder: (context,snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting)
-                  {return const Center(child: CircularProgressIndicator());}
-               else if (snapshot.hasData)
-              { final cards = snapshot.data!;
-                 return buildCards(cards);} else {
-                return const Text('No user data');
-              }
-              }
-            )
-          ),
+              child: FutureBuilder<List<ReusableCard>>(
+                  future: cardsFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasData) {
+                      final cards = snapshot.data!;
+                      return buildCards(cards);
+                    } else {
+                      return const Text('No user data');
+                    }
+                  })),
           Expanded(
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -71,14 +69,21 @@ class _MainPageState extends State<MainPage> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
-                        Icons.settings,
-                        color: Colors.white,
+                    children: [
+                      IconButton(
+                        onPressed: (){ Localizations.localeOf(context)
+                            .languageCode ==
+                            'en'
+                            ? context.read<LangChangeProvider>().changeLocale('ru')
+                            : context.read<LangChangeProvider>().changeLocale('en');},
+                        icon: const Icon(
+                          Icons.settings,
+                          color: Colors.white,
+                        ),
                       ),
-                      ReusableCard(
+                      const ReusableCard(
                           color: Colors.deepPurpleAccent, text: 'Мои коды'),
-                      Icon(
+                      const Icon(
                         Icons.person,
                         color: Colors.white,
                       )
@@ -99,8 +104,10 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-Widget buildCards (List <ReusableCard> cards) => ListView.builder(itemBuilder: (context,index) {
-  final card = cards [index];
-  return card;
-},
-itemCount: cards.length,);
+Widget buildCards(List<ReusableCard> cards) => ListView.builder(
+      itemBuilder: (context, index) {
+        final card = cards[index];
+        return card;
+      },
+      itemCount: cards.length,
+    );

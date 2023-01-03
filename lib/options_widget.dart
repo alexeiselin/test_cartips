@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-const List<String> options = ['Все коды', 'Избранное', 'Машина', 'Добавить'];
+List<String> optionsList(BuildContext context) {
+  return [
+    AppLocalizations.of(context)!.all_codes,
+    AppLocalizations.of(context)!.take_choice,
+    AppLocalizations.of(context)!.car,
+    AppLocalizations.of(context)!.add
+  ];
+}
 
 class ReusableCard2 extends StatefulWidget {
   const ReusableCard2({Key? key}) : super(key: key);
@@ -19,15 +27,14 @@ class _ReusableCard2State extends State<ReusableCard2> {
       child: Wrap(
         spacing: 15.0,
         children: List<Widget>.generate(
-          options.length,
+          optionsList(context).length,
           (int idx) {
             return ChoiceChip(
-              elevation: 1,
-              shadowColor: Colors.grey,
-
-            backgroundColor: Colors.white10,
+                elevation: 1,
+                shadowColor: Colors.grey,
+                backgroundColor: Colors.white10,
                 selectedColor: Colors.black,
-                label: Text(options[idx]),
+                label: Text(optionsList(context)[idx]),
                 labelStyle: TextStyle(
                   color: _value == idx ? Colors.white : Colors.black,
                 ),

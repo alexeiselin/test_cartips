@@ -1,0 +1,13 @@
+{"all_codes": "All codes",
+  "@all_codes": {
+    "description": "All_codes"},
+  "take_choice": "Favorites",
+  "@take_choice": {
+    "description": "Take_choice"},
+  "car": "Car",
+  "@car": {
+    "description": "Car_button"},
+  "add": "Add",
+  "@add": {
+    "description": "Add_button"}
+}
