@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tinycolor2/tinycolor2.dart';
+import 'package:async/async.dart';
 
 class ReusableCard extends StatelessWidget {
   const ReusableCard({Key? key, required this.color, required this.text})
