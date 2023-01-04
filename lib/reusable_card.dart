@@ -27,23 +27,18 @@ class ReusableCard extends StatelessWidget {
           children: [
             Container(
                 decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    color: TinyColor.fromColor(color).darken(9).toColor(),
-                    // color: Color.alphaBlend(color.withOpacity(0.9), Colors.black.withOpacity(0.9))
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  color: TinyColor.fromColor(color).darken(9).toColor(),
                 ),
                 child: const Padding(
-                  padding: EdgeInsets.all(5.0),
-                    child: Icon(Icons.qr_code))),
+                    padding: EdgeInsets.all(5.0), child: Icon(Icons.qr_code))),
             const SizedBox(
               width: 5.0,
             ),
             Text(
               text,
-              style:GoogleFonts.roboto(
-                fontSize:  18,
-                fontWeight: FontWeight.w500
-              ),
-
+              style:
+                  GoogleFonts.roboto(fontSize: 18, fontWeight: FontWeight.w500),
             ),
           ],
         ),

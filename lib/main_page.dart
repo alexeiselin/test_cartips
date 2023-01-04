@@ -93,7 +93,7 @@ class _MainPageState extends State<MainPage> {
                               : context
                                   .read<LangChangeProvider>()
                                   .changeLocale('en');
-                        },
+                        }, // добавил эту кнопку для демонстрации работы локализации
                         icon: const Icon(
                           size: 28.0,
                           Icons.settings,
@@ -108,7 +108,7 @@ class _MainPageState extends State<MainPage> {
                         width: 126.0,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:  [
+                          children: [
                             const Icon(
                               Icons.qr_code,
                               size: 28.0,
@@ -116,10 +116,10 @@ class _MainPageState extends State<MainPage> {
                             const SizedBox(width: 4.0),
                             Text(
                               'Мои коды',
-                              style:  GoogleFonts.roboto(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                              style: GoogleFonts.roboto(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black),
                             ),
                           ],
                         ),
@@ -135,13 +135,6 @@ class _MainPageState extends State<MainPage> {
           ]),
         ),
       ),
-
-      // body: Column(
-      //   children:  [
-      //
-
-      //   ],
-      // ),
     );
   }
 }

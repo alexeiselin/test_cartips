@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 List<String> optionsList(BuildContext context) {
   return [
-    AppLocalizations.of(context)!.all_codes,
-    AppLocalizations.of(context)!.take_choice,
-    AppLocalizations.of(context)!.car,
-    AppLocalizations.of(context)!.add
+    AppLocalizations.of(context).all_codes,
+    AppLocalizations.of(context).take_choice,
+    AppLocalizations.of(context).car,
+    AppLocalizations.of(context).add
   ];
 }
 
