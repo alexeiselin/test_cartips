@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tinycolor2/tinycolor2.dart';
 
 class ReusableCard extends StatelessWidget {
   const ReusableCard({Key? key, required this.color, required this.text})
@@ -27,7 +28,9 @@ class ReusableCard extends StatelessWidget {
             Container(
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    color: Color.alphaBlend(color.withOpacity(0.9), Colors.black.withOpacity(0.9))),
+                    color: TinyColor.fromColor(color).darken(9).toColor(),
+                    // color: Color.alphaBlend(color.withOpacity(0.9), Colors.black.withOpacity(0.9))
+                ),
                 child: const Padding(
                   padding: EdgeInsets.all(5.0),
                     child: Icon(Icons.qr_code))),
