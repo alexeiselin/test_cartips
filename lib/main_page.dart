@@ -1,10 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:test_cartips/options_widget.dart';
+import 'package:flutter/services.dart';
+import 'package:test_cartips/reusable_card2.dart';
 import 'package:test_cartips/reusable_card.dart';
-import 'mock_implementation.dart';
 import 'lang_change_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:google_fonts/google_fonts.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,6 +17,15 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  late Future<List<ReusableCard>> cardsFuture;
+  Future<List<ReusableCard>> readJson() async {
+    await Future.delayed(const Duration(milliseconds: 2000));
+    final data = await rootBundle.loadString('assets/sample.json');
+    final body = await json.decode(data);
+    return body.map<ReusableCard>(ReusableCard.fromJson).toList();
+    // return body.map ((json) => ReusableCard.fromJson(json)).toList();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -39,8 +50,8 @@ class _MainPageState extends State<MainPage> {
                           fontSize: 24.0,
                           fontWeight: FontWeight.w500,
                           color: Colors.black)),
-                  Badge(
-                    position: BadgePosition.topEnd(top: 3, end: 3),
+                  badges.Badge(
+                    position: badges.BadgePosition.topEnd(top: 3, end: 3),
                     showBadge: true,
                     child: const Icon(
                       size: 36.0,

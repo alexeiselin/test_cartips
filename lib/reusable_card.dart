@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tinycolor2/tinycolor2.dart';
 
-
 class ReusableCard extends StatelessWidget {
   const ReusableCard({Key? key, required this.color, required this.text})
       : super(key: key);
@@ -10,8 +9,12 @@ class ReusableCard extends StatelessWidget {
   final Color color;
   final String text;
 
-  static ReusableCard fromJson(json) =>
-      ReusableCard(color: HexColor(json['color']), text: json['text']);
+  // static ReusableCard fromJson(json) =>
+  //     ReusableCard(color: HexColor(json['color']), text: json['text']);
+
+  ReusableCard.fromJson(json, {super.key})
+      : color = HexColor(json['color']),
+        text = json['text'];
 
   @override
   Widget build(BuildContext context) {

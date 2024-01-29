@@ -1,22 +1,129 @@
- [
+{
+  "clients": [
     {
-      "text": "Моя машина",
-      "color": "d9e6fb"
+      "name": "Аптечная сеть 186,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
     },
     {
-      "text": "Мой ребенок",
-      "color": "f5f2fd"
+      "name": "Аптечная сеть 286,6",
+      "taskId": null,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
     },
     {
-      "text": "Моя квартира",
-      "color": "e4f9e4"
+      "name": "Аптечная сеть 386,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
     },
     {
-      "text": "Мой кошелек",
-      "color": "e3f1fd"
+      "name": "Аптечная сеть 486,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
     },
     {
-      "text": "Мой телефон",
-      "color": "e4fbf5"
+      "name": "Аптечная сеть 586,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 686,6",
+      "taskId": null,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    }
+  ],
+  "message": null,
+
+  "networks": [
+    {
+      "name": "Аптечная сеть 36,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 46,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 56,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 66,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 76,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
+    },
+    {
+      "name": "Аптечная сеть 86,6",
+      "taskId": 999999,
+      "comment": null,
+      "manager": "Петров В.В.",
+      "grossIncome": 12.2,
+      "completeGrossIncome": 111.5,
+      "forecastGrossIncome": 10.2,
+      "isHaveProblems": null
     }
   ]
+
+}
